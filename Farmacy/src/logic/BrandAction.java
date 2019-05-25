@@ -6,8 +6,13 @@
 package logic;
 
 import db.DBConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import view.AddItem;
 
 /**
  *
@@ -31,6 +36,23 @@ public class BrandAction {
         }
         
         return result;
+    }
+    public static String getBrandId(String name)
+    {
+        String sql="SELECT id FROM brand where name=?";
+        String id=null;
+        DBConnection db=new DBConnection(); 
+        Connection con=db.getConnection();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setString(1, name);
+            ResultSet rs=ps.executeQuery();
+            if(rs.next())
+                id=rs.getString("id");
+        } catch (SQLException ex) {
+            Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
     }
     
 }
