@@ -5,6 +5,16 @@
  */
 package view;
 
+import db.DBConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import logic.BrandAction;
+
 /**
  *
  * @author Indunil
@@ -16,8 +26,24 @@ public class UpdateBrand extends javax.swing.JPanel {
      */
     public UpdateBrand() {
         initComponents();
+        fillCombo();
     }
-
+    public void fillCombo()
+    {
+        String sql="SELECT * FROM brand";
+        
+        DBConnection db=new DBConnection(); 
+        Connection con=db.getConnection();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()) {
+                selectBrandName.addItem(rs.getString("name"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddItem.class.getName()).log(Level.ALL.SEVERE, null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,6 +68,11 @@ public class UpdateBrand extends javax.swing.JPanel {
         jLabel3.setText("Brand Name");
 
         jButton1.setText("Update this Brand");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         selectBrandName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -82,6 +113,23 @@ public class UpdateBrand extends javax.swing.JPanel {
                 .addContainerGap(162, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String bId=selectBrandName.getSelectedItem().toString();
+         BrandAction action=new BrandAction();
+        String brandId=action.getBrandId(bId);
+        int brId=Integer.parseInt(brandId);
+        BrandAction ba=new BrandAction();
+        boolean result=ba.brandUpdate(brId, bId);
+        if(result)
+        {
+             JOptionPane.showMessageDialog(null, "Brand Updated !!");
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Failed !!!");
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -137,7 +137,6 @@ public class RegisterItem extends javax.swing.JPanel {
         String brandName=comboItem.getSelectedItem().toString();
         BrandAction action=new BrandAction();
         String brandId=action.getBrandId(brandName);
-        System.out.println(brandId);
         int bId=Integer.parseInt(brandId);
         if(itemId==null){
             

@@ -54,5 +54,23 @@ public class BrandAction {
         }
         return id;
     }
+    public static boolean brandUpdate(int id,String name)
+    {
+        boolean result = false;
+        String qeury = "UPDATE brand SET name=? WHERE id=?";
+        DBConnection myConnection = new DBConnection();
+        try {
+            java.sql.PreparedStatement st  = myConnection.getConnection().prepareStatement(qeury);
+            st.setString(1, name);
+            st.setInt(2, id);
+            st.execute();
+            result=true;         
+        } catch (Exception ex) {
+            Logger.getLogger(BrandAction.class.getName()).log(Level.SEVERE, null, ex);
+            result = false;
+        }
+        
+        return result;
+    }
     
 }
