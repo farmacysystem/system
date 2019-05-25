@@ -35,6 +35,7 @@ public class Add extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jSplitPane3 = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -69,6 +70,8 @@ public class Add extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Add");
 
+        jButton4.setText("close");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -76,6 +79,7 @@ public class Add extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
                     .addComponent(jLabel2)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -94,7 +98,9 @@ public class Add extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(62, 62, 62)
                 .addComponent(jButton3)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(27, 27, 27))
         );
 
         jSplitPane2.setRightComponent(jPanel3);
@@ -154,7 +160,7 @@ public class Add extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                .addComponent(jSplitPane1)
                 .addContainerGap())
         );
 
@@ -200,6 +206,7 @@ public class Add extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

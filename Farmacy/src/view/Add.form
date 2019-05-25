@@ -34,7 +34,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSplitPane1" pref="500" max="32767" attributes="0"/>
+              <Component id="jSplitPane1" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -94,6 +94,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
@@ -116,7 +117,9 @@
                           <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                           <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="153" max="32767" attributes="0"/>
+                          <EmptySpace pref="101" max="32767" attributes="0"/>
+                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -143,6 +146,11 @@
                       <Font name="Tahoma" size="18" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Add"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="close"/>
                   </Properties>
                 </Component>
               </SubComponents>

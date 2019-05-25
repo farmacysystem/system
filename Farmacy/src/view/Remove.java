@@ -35,6 +35,7 @@ public class Remove extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jSplitPane3 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -69,6 +70,8 @@ public class Remove extends javax.swing.JFrame {
 
         jButton3.setText("Brand");
 
+        jButton4.setText("close");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -76,6 +79,7 @@ public class Remove extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
                     .addComponent(jButton3)
                     .addComponent(jButton2)
                     .addComponent(jButton1)
@@ -93,7 +97,9 @@ public class Remove extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(58, 58, 58)
                 .addComponent(jButton3)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(26, 26, 26))
         );
 
         jSplitPane2.setBottomComponent(jPanel4);
@@ -199,6 +205,7 @@ public class Remove extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

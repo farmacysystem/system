@@ -35,7 +35,6 @@ public class RemoveRef extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Remove Ref");
@@ -53,8 +52,6 @@ public class RemoveRef extends javax.swing.JPanel {
         jTextField2.setText("jTextField2");
 
         jButton1.setText("Remove this Ref");
-
-        jButton2.setText("close");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,10 +77,6 @@ public class RemoveRef extends javax.swing.JPanel {
                         .addGap(162, 162, 162)
                         .addComponent(jButton1)))
                 .addContainerGap(243, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(69, 69, 69))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,16 +97,13 @@ public class RemoveRef extends javax.swing.JPanel {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(45, 45, 45))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

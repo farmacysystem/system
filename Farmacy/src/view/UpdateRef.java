@@ -32,7 +32,6 @@ public class UpdateRef extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
@@ -48,8 +47,6 @@ public class UpdateRef extends javax.swing.JPanel {
 
         jTextField2.setText("jTextField2");
 
-        jButton1.setText("Close");
-
         jLabel4.setText("Search");
 
         jTextField3.setText("jTextField3");
@@ -60,10 +57,6 @@ public class UpdateRef extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(126, 126, 126))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -105,15 +98,12 @@ public class UpdateRef extends javax.swing.JPanel {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addComponent(jButton2)
-                .addGap(56, 56, 56)
-                .addComponent(jButton1)
-                .addGap(72, 72, 72))
+                .addGap(153, 153, 153))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
