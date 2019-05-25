@@ -171,12 +171,13 @@ public class AddItem extends javax.swing.JPanel {
         
         Ref ref=new Ref();
         String id=ref.getRefId(refName);
-        int refId=Integer.parseInt(id);
+        
         String ItemId=itemId.getText();
         String quantity=txtQuantity.getText();
         String salePrice=txtsalePrice.getText();
         String wholesalePrice=txtretailPrice.getText();
         try {
+            int refId=Integer.parseInt(id);
            Double quantityD=Double.parseDouble(quantity);
         Double rPrice=Double.parseDouble(salePrice);
         Double sprice=Double.parseDouble(wholesalePrice);
