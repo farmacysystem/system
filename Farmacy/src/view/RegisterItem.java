@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
  * @author Indunil
@@ -58,7 +59,11 @@ public class RegisterItem extends javax.swing.JPanel {
         itemId = new javax.swing.JTextField();
         itemName = new javax.swing.JTextField();
         comboBrandName = new javax.swing.JComboBox<>();
+<<<<<<< HEAD
         jButton1 = new javax.swing.JButton();
+=======
+        jButton2 = new javax.swing.JButton();
+>>>>>>> 79b850cc590eefc9db671fa1a6601573f56e7839
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Register Item");
@@ -80,12 +85,16 @@ public class RegisterItem extends javax.swing.JPanel {
             }
         });
 
+<<<<<<< HEAD
         jButton1.setText("Register");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+=======
+        jButton2.setText("Rrgister");
+>>>>>>> 79b850cc590eefc9db671fa1a6601573f56e7839
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -110,6 +119,13 @@ public class RegisterItem extends javax.swing.JPanel {
                         .addGap(221, 221, 221)
                         .addComponent(jButton1)))
                 .addContainerGap(131, Short.MAX_VALUE))
+<<<<<<< HEAD
+=======
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(193, 193, 193))
+>>>>>>> 79b850cc590eefc9db671fa1a6601573f56e7839
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,9 +144,15 @@ public class RegisterItem extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
                 .addGap(63, 63, 63)
                 .addComponent(jButton1)
                 .addContainerGap(169, Short.MAX_VALUE))
+=======
+                .addGap(70, 70, 70)
+                .addComponent(jButton2)
+                .addContainerGap(162, Short.MAX_VALUE))
+>>>>>>> 79b850cc590eefc9db671fa1a6601573f56e7839
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -151,7 +173,11 @@ public class RegisterItem extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> comboBrandName;
     private javax.swing.JTextField itemId;
     private javax.swing.JTextField itemName;
+<<<<<<< HEAD
     private javax.swing.JButton jButton1;
+=======
+    private javax.swing.JButton jButton2;
+>>>>>>> 79b850cc590eefc9db671fa1a6601573f56e7839
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

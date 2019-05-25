@@ -8,7 +8,13 @@ package view;
 /**
  *
  * @author Indunil
+ * 
  */
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.awt.print.Printable;
+import java.awt.print.*; 
+
 public class Bill extends javax.swing.JFrame {
 
     /**
@@ -85,6 +91,11 @@ public class Bill extends javax.swing.JFrame {
         });
 
         jButton3.setText("Print");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -200,6 +211,21 @@ public class Bill extends javax.swing.JFrame {
        
        jTextArea1.append("\t    SUJATHA PHARMACY\n\tDelgaslanga, Opanayake\n\t           0711717244\n"+"Name:"+name+"\nPhone "+phone+"\nAmmount "+ammount+"\n\n\tThank you Come again");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String printData = jTextArea1.getText();
+        PrinterJob job = PrinterJob.getPrinterJob();
+        boolean doPrint = job.printDialog();
+        
+        if(doPrint){
+            try{
+                job.print();
+            }catch(PrinterException e){
+                
+            }
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

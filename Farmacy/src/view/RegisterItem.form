@@ -42,6 +42,14 @@
               </Group>
               <EmptySpace pref="131" max="32767" attributes="0"/>
           </Group>
+<<<<<<< HEAD
+=======
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+          </Group>
+>>>>>>> 79b850cc590eefc9db671fa1a6601573f56e7839
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -64,9 +72,15 @@
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="itemName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="169" max="32767" attributes="0"/>
+=======
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="162" max="32767" attributes="0"/>
+>>>>>>> 79b850cc590eefc9db671fa1a6601573f56e7839
           </Group>
       </Group>
     </DimensionLayout>
@@ -113,6 +127,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Register"/>
@@ -120,6 +135,12 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
       </Events>
+=======
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rrgister"/>
+      </Properties>
+>>>>>>> 79b850cc590eefc9db671fa1a6601573f56e7839
     </Component>
   </SubComponents>
 </Form>
