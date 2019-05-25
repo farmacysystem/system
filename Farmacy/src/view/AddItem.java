@@ -176,7 +176,8 @@ public class AddItem extends javax.swing.JPanel {
         String quantity=txtQuantity.getText();
         String salePrice=txtsalePrice.getText();
         String wholesalePrice=txtretailPrice.getText();
-        Double quantityD=Double.parseDouble(quantity);
+        try {
+           Double quantityD=Double.parseDouble(quantity);
         Double rPrice=Double.parseDouble(salePrice);
         Double sprice=Double.parseDouble(wholesalePrice);
         model.Stock stock=new model.Stock();
@@ -193,7 +194,11 @@ public class AddItem extends javax.swing.JPanel {
         }else
         {
             JOptionPane.showMessageDialog(null, "Fail !!!");
+        } 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Please Check the Details you Entered !!");
         }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void itemIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_itemIdKeyPressed
