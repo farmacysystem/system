@@ -155,7 +155,7 @@ public class AddItem extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String bName=brandName.getText();
+        String bName=itemName.getText();
 //        String itemId = i
         String refName=comboRefName.getSelectedItem().toString();
         Ref ref=new Ref();

@@ -33,7 +33,7 @@
                       <EmptySpace min="80" pref="126" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="itemId" max="32767" attributes="0"/>
-                          <Component id="jComboBox1" alignment="0" pref="194" max="32767" attributes="0"/>
+                          <Component id="comboItem" alignment="0" pref="194" max="32767" attributes="0"/>
                           <Component id="itemName" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="182" max="32767" attributes="0"/>
@@ -65,7 +65,7 @@
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="comboItem" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
@@ -98,15 +98,10 @@
         <Property name="text" type="java.lang.String" value="Item Brand"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="comboItem">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
+          <StringArray count="0"/>
         </Property>
       </Properties>
       <AuxValues>

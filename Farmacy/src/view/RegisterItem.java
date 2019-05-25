@@ -5,6 +5,15 @@
  */
 package view;
 
+import db.DBConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Item;
+
 /**
  *
  * @author Indunil
@@ -16,8 +25,24 @@ public class RegisterItem extends javax.swing.JPanel {
      */
     public RegisterItem() {
         initComponents();
+        fillCombo();
     }
-
+    public void fillCombo()
+    {
+        String sql="SELECT * FROM brand";
+        
+        DBConnection db=new DBConnection(); 
+        Connection con=db.getConnection();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()) {
+                comboItem.addItem(rs.getString("name"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddItem.class.getName()).log(Level.ALL.SEVERE, null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +56,7 @@ public class RegisterItem extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboItem = new javax.swing.JComboBox<>();
         itemId = new javax.swing.JTextField();
         itemName = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -44,8 +69,6 @@ public class RegisterItem extends javax.swing.JPanel {
         jLabel3.setText("Item Name");
 
         jLabel4.setText("Item Brand");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setText("Register");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +96,7 @@ public class RegisterItem extends javax.swing.JPanel {
                         .addGap(80, 126, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(itemId)
-                            .addComponent(jComboBox1, 0, 194, Short.MAX_VALUE)
+                            .addComponent(comboItem, 0, 194, Short.MAX_VALUE)
                             .addComponent(itemName))
                         .addGap(0, 182, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
@@ -97,7 +120,7 @@ public class RegisterItem extends javax.swing.JPanel {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(94, 94, 94)
                 .addComponent(jButton1)
                 .addContainerGap(100, Short.MAX_VALUE))
@@ -106,29 +129,28 @@ public class RegisterItem extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String itemId = itemId.getText();
-        String itemName = itemName.getText();
+        String itemId1 = itemId.getText();
+        String itemName1 = itemName.getText();
         
         if(itemId==null){
             
         }else{
+            Item item=new Item();
+            item.setId(itemId1);
+            item.setName(itemName1);
+            
             
         }
         
-        if(itemName==null){
             
-        }else{
-            
-        }
-                
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboItem;
     private javax.swing.JTextField itemId;
     private javax.swing.JTextField itemName;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
