@@ -8,6 +8,7 @@ package view;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import db.DBConnection;
 import java.awt.List;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
+import logic.ItemAction;
 import logic.Ref;
 
 /**
@@ -93,6 +97,12 @@ public class AddItem extends javax.swing.JPanel {
 
         jLabel7.setText("Retail Price");
 
+        itemId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                itemIdKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,12 +112,12 @@ public class AddItem extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
                         .addGap(85, 85, 85)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(comboRefName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -124,19 +134,19 @@ public class AddItem extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(comboRefName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(itemId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(itemId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(itemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(comboRefName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -144,7 +154,7 @@ public class AddItem extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtsalePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(txtretailPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -158,11 +168,49 @@ public class AddItem extends javax.swing.JPanel {
         String bName=itemName.getText();
 //        String itemId = i
         String refName=comboRefName.getSelectedItem().toString();
+        
         Ref ref=new Ref();
         String id=ref.getRefId(refName);
-        System.out.println(id);
-        
+        int refId=Integer.parseInt(id);
+        String ItemId=itemId.getText();
+        String quantity=txtQuantity.getText();
+        String salePrice=txtsalePrice.getText();
+        String wholesalePrice=txtretailPrice.getText();
+        Double quantityD=Double.parseDouble(quantity);
+        Double rPrice=Double.parseDouble(salePrice);
+        Double sprice=Double.parseDouble(wholesalePrice);
+        model.Stock stock=new model.Stock();
+        stock.setItemId(ItemId);
+        stock.setQuantity(quantityD);
+        stock.setRefId(refId);
+        stock.setRecievePrice(rPrice);
+        stock.setSalePrice(sprice);
+        ItemAction ia=new ItemAction();
+        boolean result=ia.stockItem(stock);
+        if(result)
+        {
+             JOptionPane.showMessageDialog(null, "Stock the Item !!");
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Fail !!!");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void itemIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_itemIdKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){ 
+           String itemId1=itemId.getText();
+            ItemAction ia=new ItemAction();
+            String itemName1=ia.getItemName(itemId1);
+          
+          
+         if(itemName!=null){
+               itemName.setText(itemName1);
+          }
+        else{
+              itemName.setText("Item Not Found");
+                         
+          } }   
+    }//GEN-LAST:event_itemIdKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

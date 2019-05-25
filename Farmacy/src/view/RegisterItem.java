@@ -12,6 +12,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import logic.BrandAction;
+import logic.ItemAction;
 import model.Item;
 
 /**
@@ -131,15 +134,27 @@ public class RegisterItem extends javax.swing.JPanel {
         // TODO add your handling code here:
         String itemId1 = itemId.getText();
         String itemName1 = itemName.getText();
-        
+        String brandName=comboItem.getSelectedItem().toString();
+        BrandAction action=new BrandAction();
+        String brandId=action.getBrandId(brandName);
+        System.out.println(brandId);
+        int bId=Integer.parseInt(brandId);
         if(itemId==null){
             
         }else{
             Item item=new Item();
             item.setId(itemId1);
             item.setName(itemName1);
-            
-            
+            item.setBrandId(bId);
+            ItemAction ia=new ItemAction();
+            boolean result=ia.registerItem(item);
+            if(result)
+            {
+                 JOptionPane.showMessageDialog(null, "Item Registered !!");
+            }else
+            {
+                 JOptionPane.showMessageDialog(null, "Item not Registered !!");
+            }
         }
         
             

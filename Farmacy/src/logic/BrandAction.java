@@ -39,7 +39,7 @@ public class BrandAction {
     }
     public static String getBrandId(String name)
     {
-        String sql="SELECT id FROM brand where name=?";
+        String sql="SELECT * FROM brand where name=?";
         String id=null;
         DBConnection db=new DBConnection(); 
         Connection con=db.getConnection();
