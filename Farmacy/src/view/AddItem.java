@@ -196,9 +196,8 @@ public class AddItem extends javax.swing.JPanel {
     }//GEN-LAST:event_comboBrandNameMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String name=comboBrandName.getName();
+        String name=comboBrandName.getSelectedItem().toString();
         
-        System.out.println(name);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
