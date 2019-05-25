@@ -127,6 +127,11 @@ public class Add extends javax.swing.JFrame {
         jButton4.setText("close");
 
         jToggleButton1.setText("Register Item");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -196,6 +201,11 @@ public class Add extends javax.swing.JFrame {
         AddBrand addBrand=new AddBrand();
        jSplitPane2.setRightComponent(addBrand);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        RegisterItem item=new RegisterItem();
+        jSplitPane2.setRightComponent(item);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
