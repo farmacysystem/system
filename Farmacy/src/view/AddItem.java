@@ -5,6 +5,18 @@
  */
 package view;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
+import db.DBConnection;
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Indunil
@@ -14,10 +26,30 @@ public class AddItem extends javax.swing.JPanel {
     /**
      * Creates new form AddItem
      */
+    
     public AddItem() {
+        
         initComponents();
+        fillCombo();
     }
 
+    
+    HashMap<String, String> list;
+    public void fillCombo()
+    {
+        String sql="SELECT * FROM brand";
+        DBConnection db=new DBConnection(); 
+        Connection con=db.getConnection();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()) {
+                comboBrandName.addItem(rs.getString("name"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,8 +88,17 @@ public class AddItem extends javax.swing.JPanel {
         jLabel6.setText("Whole Sale Price");
 
         jButton1.setText("Add This Item");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        comboBrandName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBrandName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                comboBrandNameMouseClicked(evt);
+            }
+        });
         comboBrandName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBrandNameActionPerformed(evt);
@@ -147,7 +188,18 @@ public class AddItem extends javax.swing.JPanel {
 
     private void comboBrandNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBrandNameActionPerformed
         
+        
     }//GEN-LAST:event_comboBrandNameActionPerformed
+
+    private void comboBrandNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboBrandNameMouseClicked
+        
+    }//GEN-LAST:event_comboBrandNameMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String name=comboBrandName.getName();
+        
+        System.out.println(name);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
