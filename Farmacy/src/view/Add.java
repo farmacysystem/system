@@ -32,6 +32,11 @@ public class Add extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
 
         jButton1.setText("Item");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Ref");
 
@@ -61,6 +66,11 @@ public class Add extends javax.swing.JPanel {
                 .addContainerGap(279, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        AddItem item=new AddItem();
+        item.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
