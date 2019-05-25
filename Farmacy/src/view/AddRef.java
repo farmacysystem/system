@@ -88,7 +88,14 @@ public class AddRef extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String name=refName.getText();
         String phone=refPhonenumber.getText();
-        if(name!=null&&phone!=null)
+        if(name.equals("")){
+             refName.setText("Fill Name !!");
+        }else if(phone.equals("")){
+            refPhonenumber.setText("Fill here !!");
+        }else if(phone.length()!=10){
+            refPhonenumber.setText("Invalid number !!");
+        }
+        else
         {
         RefModel model=new RefModel();
         model.setName(name);
@@ -102,13 +109,13 @@ public class AddRef extends javax.swing.JPanel {
         {
             JOptionPane.showMessageDialog(null, "Ref not Added !!. Please Check the details");
         }
-        }else
-        {
-            refName.setText("Fill Name !!");
-            refPhonenumber.setText("Fill Phone number !!");
         }
+//        else
+//        {
+//            refName.setText("Fill Name !!");
+//            refPhonenumber.setText("Fill Phone number !!");
+//        }
     }//GEN-LAST:event_jButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

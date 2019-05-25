@@ -200,16 +200,14 @@ public class AddItem extends javax.swing.JPanel {
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){ 
            String itemId1=itemId.getText();
             ItemAction ia=new ItemAction();
-            String itemName1=ia.getItemName(itemId1);
-          
-          
-         if(itemName!=null){
-               itemName.setText(itemName1);
-          }
-        else{
-              itemName.setText("Item Not Found");
-                         
-          } }   
+            String itemName1=ia.getItemName(itemId1);    
+            if(itemName1!=null)
+            {
+                itemName.setText(itemName1);
+            }else{
+                itemName.setText("Item Not Found");
+            }         
+        }   
     }//GEN-LAST:event_itemIdKeyPressed
 
 
