@@ -30,14 +30,13 @@ public class AddItem extends javax.swing.JPanel {
     public AddItem() {
         
         initComponents();
+        fillCombo1();
         fillCombo();
     }
-
-    
-    HashMap<String, String> list;
     public void fillCombo()
     {
         String sql="SELECT * FROM brand";
+        
         DBConnection db=new DBConnection(); 
         Connection con=db.getConnection();
         try {
@@ -45,6 +44,22 @@ public class AddItem extends javax.swing.JPanel {
             ResultSet rs=ps.executeQuery();
             while (rs.next()) {
                 comboBrandName.addItem(rs.getString("name"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void fillCombo1()
+    {
+        String sql="SELECT * FROM ref";
+        
+        DBConnection db=new DBConnection(); 
+        Connection con=db.getConnection();
+        try {
+            PreparedStatement ps=con.prepareStatement(sql);
+            ResultSet rs=ps.executeQuery();
+            while (rs.next()) {
+                comboRefName.addItem(rs.getString("name"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(AddItem.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,8 +121,6 @@ public class AddItem extends javax.swing.JPanel {
         });
 
         jLabel7.setText("Retail Price");
-
-        comboRefName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jTextField1.setText("jTextField1");
 
