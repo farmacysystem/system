@@ -42,6 +42,8 @@ public class Remove extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 750));
+        setResizable(false);
 
         jSplitPane1.setDividerLocation(200);
 

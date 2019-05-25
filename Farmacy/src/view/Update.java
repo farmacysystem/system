@@ -42,6 +42,8 @@ public class Update extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 750));
+        setResizable(false);
 
         jSplitPane1.setDividerLocation(200);
 
