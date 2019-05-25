@@ -34,11 +34,11 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         txtuser = new javax.swing.JTextField();
-        nm = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        nm = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,13 +75,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        nm.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        nm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nmActionPerformed(evt);
-            }
-        });
-
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setText("Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +92,8 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Login");
 
+        nm.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -107,11 +102,11 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nm, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtuser, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)))
+                            .addComponent(jLabel3)
+                            .addComponent(nm)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(286, 286, 286)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,9 +126,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(txtuser, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(nm, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(nm, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
@@ -161,14 +156,9 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtuserActionPerformed
 
-    private void nmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nmActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nmActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String username=txtuser.getText();
+        String username=txtuser.getText();
         String password=nm.getText();
-       // String password=txtpassword.getText();
         logic.login lg=new logic.login();
         boolean result=lg.checkUserCredentials(username, password);
         if (result){
@@ -224,7 +214,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTextField nm;
+    private javax.swing.JPasswordField nm;
     private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables
 }
