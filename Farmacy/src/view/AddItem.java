@@ -77,6 +77,7 @@ public class AddItem extends javax.swing.JPanel {
         txtQuantity = new javax.swing.JTextField();
         txtsalePrice = new javax.swing.JTextField();
         txtretailPrice = new javax.swing.JTextField();
+        errorMessage = new javax.swing.JLabel();
 
         jLabel2.setText("Ref Name");
 
@@ -103,6 +104,9 @@ public class AddItem extends javax.swing.JPanel {
             }
         });
 
+        errorMessage.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        errorMessage.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -110,26 +114,29 @@ public class AddItem extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(163, 163, 163)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(comboRefName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(itemId, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                            .addComponent(itemName)
-                            .addComponent(txtQuantity)
-                            .addComponent(txtsalePrice)
-                            .addComponent(txtretailPrice)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(jButton1)))
-                .addContainerGap(355, Short.MAX_VALUE))
+                            .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3))
+                                .addGap(85, 85, 85)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(comboRefName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(itemId, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                    .addComponent(itemName)
+                                    .addComponent(txtQuantity)
+                                    .addComponent(txtsalePrice)
+                                    .addComponent(txtretailPrice))))))
+                .addContainerGap(337, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,9 +165,11 @@ public class AddItem extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7)
                     .addComponent(txtretailPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(errorMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addComponent(jButton1)
-                .addGap(59, 59, 59))
+                .addGap(48, 48, 48))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -176,6 +185,19 @@ public class AddItem extends javax.swing.JPanel {
         String quantity=txtQuantity.getText();
         String salePrice=txtsalePrice.getText();
         String wholesalePrice=txtretailPrice.getText();
+        
+        if(ItemId.equals("")){
+            errorMessage.setText("Item Id required");
+        }else if(bName.equals("")||bName.equals("Item Not Found")){
+            
+            errorMessage.setText("Item is not founded . Invalid or Not registered");
+        }else if(quantity.equals("")){
+             errorMessage.setText("Quentity is required");
+        }else if(salePrice.equals("")){
+            errorMessage.setText("Wholesale price is required");
+        }else if(wholesalePrice.equals("")){
+            errorMessage.setText("Retail Price is required");
+        }
         try {
             int refId=Integer.parseInt(id);
            Double quantityD=Double.parseDouble(quantity);
@@ -191,7 +213,14 @@ public class AddItem extends javax.swing.JPanel {
         boolean result=ia.stockItem(stock);
         if(result)
         {
+             errorMessage.setText("");
              JOptionPane.showMessageDialog(null, "Stock the Item !!");
+             itemId.setText("");
+             itemName.setText("");
+             txtQuantity.setText("");
+             txtsalePrice.setText("");
+             txtretailPrice.setText("");
+             errorMessage.setText("");
         }else
         {
             JOptionPane.showMessageDialog(null, "Fail !!!");
@@ -219,6 +248,7 @@ public class AddItem extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> comboRefName;
+    private javax.swing.JLabel errorMessage;
     private javax.swing.JTextField itemId;
     private javax.swing.JTextField itemName;
     private javax.swing.JButton jButton1;
