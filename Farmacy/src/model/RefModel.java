@@ -10,36 +10,38 @@ package model;
  * @author chamo
  */
 public class RefModel {
-     private String name;
-    private String phone;
+     private static String name;
+     private static String phone;
 
     /**
      * @return the name
      */
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
     /**
-     * @param name the name to set
+     * @param aName the name to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public static void setName(String aName) {
+        name = aName;
     }
 
     /**
      * @return the phone
      */
-    public String getPhone() {
+    public static String getPhone() {
         return phone;
     }
 
     /**
-     * @param phone the phone to set
+     * @param aPhone the phone to set
      */
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public static void setPhone(String aPhone) {
+        phone = aPhone;
     }
+
+    
     
     
 }

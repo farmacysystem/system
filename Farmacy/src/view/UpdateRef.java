@@ -5,6 +5,12 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import logic.ItemAction;
+import logic.Ref;
+import model.RefModel;
+
 /**
  *
  * @author Indunil
@@ -45,7 +51,18 @@ public class UpdateRef extends javax.swing.JPanel {
 
         jLabel4.setText("Enter ref name");
 
+        enterRefName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                enterRefNameKeyPressed(evt);
+            }
+        });
+
         jButton2.setText("Update this Ref");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -99,6 +116,37 @@ public class UpdateRef extends javax.swing.JPanel {
                 .addGap(153, 153, 153))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void enterRefNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_enterRefNameKeyPressed
+         if(evt.getKeyCode()==KeyEvent.VK_ENTER){ 
+           String itemId1=enterRefName.getText();
+             Ref ref=new Ref();
+             boolean result=ref.getRefDetails(itemId1);
+             RefModel rm=new RefModel();                  
+            if(result)
+            {
+                refName.setText(rm.getName());
+                refTpNumber.setText(rm.getPhone());
+            }else{
+                refName.setText("Not Found !!");
+                refTpNumber.setText("Not Found !!");
+            }         
+        }   
+    }//GEN-LAST:event_enterRefNameKeyPressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String name=refName.getText();
+        String phone=refTpNumber.getText();
+        Ref ref=new Ref();
+        boolean result=ref.refUpdate(name, phone);
+        if(result)
+        {
+             JOptionPane.showMessageDialog(null, "Ref Updated !!");
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Failed !!!");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

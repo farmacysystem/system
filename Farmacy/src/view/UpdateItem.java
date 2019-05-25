@@ -59,7 +59,7 @@ public class UpdateItem extends javax.swing.JPanel {
 
         jLabel6.setText("Item Name");
 
-        jLabel7.setText("Item Quentity");
+        jLabel7.setText("Item Quantity");
 
         jLabel8.setText("Whole Sale Price");
 

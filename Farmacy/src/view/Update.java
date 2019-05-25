@@ -106,6 +106,11 @@ public class Update extends javax.swing.JFrame {
         jButton1.setText("Item");
 
         jButton2.setText("Ref");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Brand");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -178,6 +183,11 @@ public class Update extends javax.swing.JFrame {
         UpdateBrand ub=new UpdateBrand();
         jSplitPane4.setRightComponent(ub);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        UpdateRef ur=new UpdateRef();
+        jSplitPane4.setRightComponent(ur);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
