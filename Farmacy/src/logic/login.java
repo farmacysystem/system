@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public class login {
     public boolean checkUserCredentials(String userName,String password){
         DBConnection con=new DBConnection();
-        String sql="SELECT password FROM user where userName=?";
+        String sql="SELECT password FROM user where name=?";
         try {
             PreparedStatement p=   con.getConnection().prepareStatement(sql);
              p.setString(1, userName);
