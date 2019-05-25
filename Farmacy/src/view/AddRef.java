@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import logic.Ref;
+import model.RefModel;
+
 /**
  *
  * @author Indunil
@@ -29,19 +33,20 @@ public class AddRef extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        refName = new javax.swing.JTextField();
+        refPhonenumber = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("Ref Name");
 
         jLabel2.setText("Ref Tp Number");
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField2");
-
         jButton1.setText("Add this Ref");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,8 +61,8 @@ public class AddRef extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(66, 66, 66)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(jTextField2)))
+                            .addComponent(refName, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(refPhonenumber)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(jButton1)))
@@ -66,26 +71,50 @@ public class AddRef extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(92, 92, 92)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                    .addComponent(refName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(refPhonenumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(86, 86, 86)
                 .addComponent(jButton1)
                 .addContainerGap(208, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String name=refName.getText();
+        String phone=refPhonenumber.getText();
+        if(name!=null&&phone!=null)
+        {
+        RefModel model=new RefModel();
+        model.setName(name);
+        model.setPhone(phone);
+        Ref ref=new Ref();
+        boolean result=ref.addRef(model);
+        if(result)
+        {
+             JOptionPane.showMessageDialog(null, "Ref Added !!");
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Ref not Added !!. Please Check the details");
+        }
+        }else
+        {
+            refName.setText("Fill Name !!");
+            refPhonenumber.setText("Fill Phone number !!");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField refName;
+    private javax.swing.JTextField refPhonenumber;
     // End of variables declaration//GEN-END:variables
 }

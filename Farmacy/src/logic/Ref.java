@@ -8,20 +8,22 @@ package logic;
 import db.DBConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.RefModel;
 
 /**
  *
  * @author chamo
  */
-public class BrandAction {
-    public static boolean brandAdd(String name)
+public class Ref {
+    public static boolean addRef(RefModel ref)
     {
         boolean result = false;
-        String qeury = "INSERT brand (name) VALUES(?)";
+        String qeury = "INSERT ref (name,telephone) VALUES(?,?)";
         DBConnection myConnection = new DBConnection();
         try {
-            java.sql.PreparedStatement st  = myConnection.getConnection().prepareStatement(qeury);
-            st.setString(1, name);
+            java.sql.PreparedStatement st  = DBConnection.getConnection().prepareStatement(qeury);
+            st.setString(1, ref.getName());
+            st.setString(2, ref.getPhone());
             st.execute();
             result=true;
           
