@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logic;
 
 import db.DBConnection;
@@ -12,16 +8,13 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author CHAMOD
- */
+
 public class login {
     public boolean checkUserCredentials(String userName,String password){
         DBConnection con=new DBConnection();
         String sql="SELECT password FROM user where name=?";
         try {
-            PreparedStatement p=   con.getConnection().prepareStatement(sql);
+            PreparedStatement p= DBConnection.getConnection().prepareStatement(sql);
              p.setString(1, userName);
            ResultSet r= p.executeQuery();
           String storedpassword="";
@@ -29,8 +22,7 @@ public class login {
            if(r.next())
              storedpassword=r.getString("password");
              if(storedpassword.equals(password)){
-                 return true;
-                 
+                 return true;  
              }
              else{
                  return false;

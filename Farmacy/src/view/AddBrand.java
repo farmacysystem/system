@@ -5,6 +5,10 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import logic.BrandAction;
+
+
 /**
  *
  * @author Indunil
@@ -34,6 +38,11 @@ public class AddBrand extends javax.swing.JPanel {
         jLabel1.setText("Brand Name");
 
         jButton1.setText("Add This Brand");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,6 +72,25 @@ public class AddBrand extends javax.swing.JPanel {
                 .addContainerGap(309, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String bName=brandName.getText();
+        if(bName==null)
+        {
+            brandName.setText("Please Fill Brand Name !!");
+        }else{
+        BrandAction bAction=new BrandAction();
+        boolean result=bAction.brandAdd(bName);
+        if(result)
+        {
+             JOptionPane.showMessageDialog(null, "Brand Added !!");
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Brand not Added !!. Please Check the details");
+        }
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
